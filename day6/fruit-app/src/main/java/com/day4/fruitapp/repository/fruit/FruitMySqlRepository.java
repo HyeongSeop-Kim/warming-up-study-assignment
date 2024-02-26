@@ -1,13 +1,16 @@
-package com.day4.fruitapp.repository;
+package com.day4.fruitapp.repository.fruit;
 
 import com.day4.fruitapp.domain.fruit.Fruit;
 import com.day4.fruitapp.dto.fruit.model.FruitStat;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
+@Primary
 @Repository
 public class FruitMySqlRepository implements FruitRepository {
 

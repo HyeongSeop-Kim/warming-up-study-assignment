@@ -1,4 +1,4 @@
-package com.day4.fruitapp.repository;
+package com.day4.fruitapp.repository.fruit;
 
 import com.day4.fruitapp.domain.fruit.Fruit;
 import com.day4.fruitapp.dto.fruit.model.FruitStat;

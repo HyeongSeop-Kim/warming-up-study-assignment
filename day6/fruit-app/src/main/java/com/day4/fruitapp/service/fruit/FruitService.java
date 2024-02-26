@@ -6,7 +6,7 @@ import com.day4.fruitapp.dto.fruit.request.FruitAddRequest;
 import com.day4.fruitapp.dto.fruit.request.FruitSellReqeust;
 import com.day4.fruitapp.dto.fruit.response.FruitStatResponse;
 import com.day4.fruitapp.exception.FruitNotFoundException;
-import com.day4.fruitapp.repository.FruitRepository;
+import com.day4.fruitapp.repository.fruit.FruitRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
