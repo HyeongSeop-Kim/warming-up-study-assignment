@@ -23,7 +23,7 @@ public class FruitMemoryRepository implements FruitRepository {
     @Override
     public void save(Fruit fruit) {
         fruits.add(new Fruit(
-                fruits.size()+1,
+                fruits.size() + 1L,
                 fruit.getName(),
                 fruit.getPrice(),
                 fruit.getWarehousingDate(),

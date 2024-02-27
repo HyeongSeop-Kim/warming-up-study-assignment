@@ -8,10 +8,12 @@ import com.day4.fruitapp.dto.fruit.response.FruitStatResponse;
 import com.day4.fruitapp.exception.FruitNotFoundException;
 import com.day4.fruitapp.repository.fruit.FruitJpaRepository;
 import com.day4.fruitapp.repository.fruit.FruitRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Primary
 @Service
 public class FruitServiceV2 implements FruitService {
 
@@ -45,9 +47,9 @@ public class FruitServiceV2 implements FruitService {
             throw new FruitNotFoundException("과일 정보를 찾을 수 없습니다.");
         }
 
-//        List<FruitStat> stats = fruitRepository.getStats(name);
+        List<FruitStat> stats = fruitRepository.getStats(name);
         FruitStatResponse response = new FruitStatResponse();
-//        stats.forEach(response::setStat);
+        stats.forEach(response::setStat);
 
         return response;
     }
