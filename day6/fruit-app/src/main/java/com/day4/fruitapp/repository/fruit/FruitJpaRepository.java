@@ -14,4 +14,6 @@ public interface FruitJpaRepository extends JpaRepository<Fruit, Long> {
 
     @Query("select new com.day4.fruitapp.dto.fruit.model.FruitStat(f.soldYn, sum(f.price)) from Fruit f where f.name = :name group by f.soldYn")
     List<FruitStat> getStats(@Param("name") String name);
+
+    long countByName(String name);
 }

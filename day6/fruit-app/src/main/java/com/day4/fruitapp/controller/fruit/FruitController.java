@@ -2,6 +2,7 @@ package com.day4.fruitapp.controller.fruit;
 
 import com.day4.fruitapp.dto.fruit.request.FruitSellReqeust;
 import com.day4.fruitapp.dto.fruit.request.FruitAddRequest;
+import com.day4.fruitapp.dto.fruit.response.FruitCountResponse;
 import com.day4.fruitapp.dto.fruit.response.FruitStatResponse;
 import com.day4.fruitapp.service.fruit.FruitService;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,10 @@ public class FruitController {
     @GetMapping("/api/v1/fruit/stat")
     public FruitStatResponse getStat(@RequestParam String name) {
         return fruitService.getStat(name);
+    }
+
+    @GetMapping("/api/v1/fruit/count")
+    public FruitCountResponse getCount(@RequestParam String name) {
+        return fruitService.getCount(name);
     }
 }

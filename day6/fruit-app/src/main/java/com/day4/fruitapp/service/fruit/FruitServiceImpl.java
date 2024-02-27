@@ -4,10 +4,10 @@ import com.day4.fruitapp.domain.fruit.Fruit;
 import com.day4.fruitapp.dto.fruit.model.FruitStat;
 import com.day4.fruitapp.dto.fruit.request.FruitAddRequest;
 import com.day4.fruitapp.dto.fruit.request.FruitSellReqeust;
+import com.day4.fruitapp.dto.fruit.response.FruitCountResponse;
 import com.day4.fruitapp.dto.fruit.response.FruitStatResponse;
 import com.day4.fruitapp.exception.FruitNotFoundException;
 import com.day4.fruitapp.repository.fruit.FruitJpaRepository;
-import com.day4.fruitapp.repository.fruit.FruitRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ import java.util.List;
 
 @Primary
 @Service
-public class FruitServiceV2 implements FruitService {
+public class FruitServiceImpl implements FruitService {
 
     private final FruitJpaRepository fruitRepository;
 
-    public FruitServiceV2(FruitJpaRepository fruitRepository) {
+    public FruitServiceImpl(FruitJpaRepository fruitRepository) {
         this.fruitRepository = fruitRepository;
     }
 
@@ -52,5 +52,10 @@ public class FruitServiceV2 implements FruitService {
         stats.forEach(response::setStat);
 
         return response;
+    }
+
+    @Override
+    public FruitCountResponse getCount(String name) {
+        return new FruitCountResponse(fruitRepository.countByName(name));
     }
 }
