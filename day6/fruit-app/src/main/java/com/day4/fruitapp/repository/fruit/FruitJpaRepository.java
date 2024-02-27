@@ -16,4 +16,8 @@ public interface FruitJpaRepository extends JpaRepository<Fruit, Long> {
     List<FruitStat> getStats(@Param("name") String name);
 
     long countByName(String name);
+
+    List<Fruit> findAllBySoldYnAndPriceGreaterThanEqualOrderByName(String soldYn, long price);
+
+    List<Fruit> findAllBySoldYnAndPriceLessThanEqualOrderByName(String soldYn, long price);
 }
