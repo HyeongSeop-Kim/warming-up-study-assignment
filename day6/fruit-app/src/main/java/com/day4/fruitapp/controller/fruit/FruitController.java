@@ -3,31 +3,31 @@ package com.day4.fruitapp.controller.fruit;
 import com.day4.fruitapp.dto.fruit.request.FruitSellReqeust;
 import com.day4.fruitapp.dto.fruit.request.FruitAddRequest;
 import com.day4.fruitapp.dto.fruit.response.FruitStatResponse;
-import com.day4.fruitapp.service.fruit.FruitService;
+import com.day4.fruitapp.service.fruit.FruitServiceV1;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class FruitController {
 
-    private final FruitService fruitService;
+    private final FruitServiceV1 fruitServiceV1;
 
-    public FruitController(FruitService fruitService) {
-        this.fruitService = fruitService;
+    public FruitController(FruitServiceV1 fruitServiceV1) {
+        this.fruitServiceV1 = fruitServiceV1;
     }
 
     @PostMapping("/api/v1/fruit")
     public void storeFruit(@RequestBody FruitAddRequest request) {
-        fruitService.storeFruit(request);
+        fruitServiceV1.storeFruit(request);
     }
 
     @PutMapping("/api/v1/fruit")
     public void sellFruit(@RequestBody FruitSellReqeust reqeust) {
-        fruitService.sellFruit(reqeust);
+        fruitServiceV1.sellFruit(reqeust);
     }
 
     @GetMapping("/api/v1/fruit/stat")
     public FruitStatResponse getStat(@RequestParam String name) {
-        return fruitService.getStat(name);
+        return fruitServiceV1.getStat(name);
     }
 }
