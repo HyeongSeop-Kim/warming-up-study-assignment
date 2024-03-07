@@ -2,6 +2,13 @@ spring:
   profiles:
     default: local
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
   datasource:
     url: "jdbc:mysql://localhost/company"
     username: "root"
@@ -25,7 +32,7 @@ spring:
       on-profile: test
 
   datasource:
-    url: jdbc:h2:mem:~/programming/H2
+    url: jdbc:h2:mem:~/programming/H2/company
     driver-class-name: org.h2.Driver
     username: sa
     password:
